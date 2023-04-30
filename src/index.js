@@ -1,6 +1,6 @@
 //using SheCodes weather api
 let apiKey = "01e67acf316997535ao54a5te02b15fa";
-
+let celsiusTemperature = null;
 function format_time(time) {
   let date = new Date(time);
   let hours = date.getHours();
@@ -39,6 +39,7 @@ function show_temp_of_city(response) {
   humidity.innerHTML = response.data.temperature.humidity;
   wind.innerHTML = response.data.wind.speed;
   temperature.innerHTML = Math.round(response.data.temperature.current);
+  celsiusTemperature = response.data.temperature.current;
   weather_icon.setAttribute(
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
@@ -63,5 +64,33 @@ axios
   .then(show_temp_of_city);
 
 //search city
-let search_btn = document.querySelector("form");
-search_btn.addEventListener("submit", searchCity);
+let search_form = document.querySelector("form");
+search_form.addEventListener("submit", searchCity);
+
+//chane unit - celsius to fahrenheit
+function show_fahrenheit(event) {
+  event.preventDefault();
+  //remove the active class from thhe culsius link:
+  celsius_link.classList.remove("active");
+  fahrenheit_link.classList.add("active");
+  let temperature = document.querySelector("#temperature");
+  let fahrenheit = (celsiusTemperature * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(fahrenheit);
+}
+
+let fahrenheit_link = document.querySelector("#fahrenheit");
+fahrenheit_link.addEventListener("click", show_fahrenheit);
+
+//chane unit - fahrenheit to celsius
+function show_celsius(event) {
+  event.preventDefault();
+  fahrenheit_link.classList.remove("active");
+  celsius_link.classList.add("active");
+  let temperature = document.querySelector("#temperature");
+  temperature.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsius_link = document.querySelector("#celsius");
+celsius_link.addEventListener("click", show_celsius);
+
+// active/inactive unit links

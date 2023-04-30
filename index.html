@@ -27,29 +27,22 @@
         <div class="weather-forecast">
           <form action="" class="search-weather">
             <div class="row">
-              <div class="col-6">
+              <div class="col-8">
                 <input
                   type="search"
                   placeholder="enter your city"
                   id="search-city-input"
                 />
               </div>
-              <div class="col-3">
+              <div class="col-4">
                 <input type="submit" value="search" id="search-btn" />
-              </div>
-              <div class="col-3">
-                <input
-                  type="button"
-                  value="your city"
-                  id="current-location-btn"
-                />
               </div>
             </div>
           </form>
           <hr />
           <div class="current-weather">
             <div class="row">
-              <div class="col-8">
+              <div class="col-7">
                 <h1></h1>
                 <ul>
                   <li id="time"></li>
@@ -60,10 +53,10 @@
                   </li>
                 </ul>
               </div>
-              <div class="col-4">
-               <div class="d-flex">
+              <div class="col-5">
+               <div class="d-flex justify-content-end  temperature-icon-wrapper">
                  <img id="current-weather-icon" src="" alt="" />
-                <span id="temperature"></span><span class="unit">°C</span>
+                <span id="temperature"></span><span class="unit"><a href="#" id="celsius" class="active">°C</a>|<a href="#" id="fahrenheit">°F</a></span>
               
                </div>
               </div>

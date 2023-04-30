@@ -33,9 +33,10 @@ li {
   color: #272142;
 }
 p {
-  margin-top: 0;
+  margin-top: 3px;
   font-family: "Roboto", sans-serif;
   color: #3e375dbe;
+  text-align: center;
 }
 a {
   text-decoration: none;
@@ -49,6 +50,7 @@ a {
   border: 1px solid #27214260;
   padding: 30px;
   border-radius: 10px;
+  box-shadow: 0px 1px 10px #27214260;
 }
 #search-city-input {
   width: 100%;
@@ -60,8 +62,6 @@ a {
   font-family: "Roboto", sans-serif;
   color: #3e375dbe;
 }
-
-#current-location-btn,
 #search-btn {
   width: 100%;
   border: none;
@@ -72,21 +72,25 @@ a {
   color: #272142;
   background: rgba(130, 175, 238, 0.345) 74.6%;
 }
-#current-location-btn:hover,
 #search-btn:hover {
   background: rgba(130, 175, 238, 0.577) 74.6%;
 }
 #temperature {
-  font-size: 70px;
+  font-size: 75px;
+  color: #272142;
   font-family: "Roboto", sans-serif;
 }
 .unit {
   font-family: "Roboto", sans-serif;
-  font-size: 25px;
+  font-size: 10spx;
   position: relative;
   top: 15px;
   left: -10px;
 }
 #weather-description::first-letter {
   text-transform: capitalize;
+}
+.temperature-icon-wrapper .active {
+  color: #272142;
+  cursor: default;
 }
