@@ -50,6 +50,8 @@ function show_temp_of_city(response) {
 
 function searchCity(event) {
   event.preventDefault();
+  fahrenheit_link.classList.remove("active");
+  celsius_link.classList.add("active");
   let searched_city = document.querySelector("#search-city-input");
   if (searched_city.value) {
     let apiUrlSearchCity = `https://api.shecodes.io/weather/v1/current?query=${searched_city.value}&key=${apiKey}&units=metric`;
