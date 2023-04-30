@@ -32,13 +32,21 @@
           <form action="" class="search-weather">
             <div class="row">
               <div class="col-6">
-                <input type="search" placeholder="enter your city" />
+                <input
+                  type="search"
+                  placeholder="enter your city"
+                  id="search-city-input"
+                />
               </div>
               <div class="col-3">
-                <input type="submit" value="search" />
+                <input type="submit" value="search" id="search-btn" />
               </div>
               <div class="col-3">
-                <input type="button" value="your city" />
+                <input
+                  type="button"
+                  value="your city"
+                  id="current-location-btn"
+                />
               </div>
             </div>
           </form>
@@ -49,13 +57,16 @@
                 <h1>NewYork</h1>
                 <ul>
                   <li>Friday 9:28</li>
-                  <li>sunny</li>
-                  <li>Humidity: 75% | Wind: 3.6km/h</li>
+                  <li id="weather-description">sunny</li>
+                  <li>
+                    Humidity: <span id="humidity">75</span>% | Wind:
+                    <span id="wind">3.6</span>km/h
+                  </li>
                 </ul>
               </div>
               <div class="col-3">
                 <i class="fa-solid fa-cloud"></i>
-                <span class="temperature">18</span><span class="unit">°C</span>
+                <span id="temperature">18</span><span class="unit">°C</span>
               </div>
             </div>
           </div>
