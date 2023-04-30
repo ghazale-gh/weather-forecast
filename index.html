@@ -18,10 +18,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="src/styles.css" />
-    <script
-      src="https://kit.fontawesome.com/d56940cb21.js"
-      crossorigin="anonymous"
-    ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <title>weather forecast</title>
   </head>
@@ -53,28 +49,30 @@
           <hr />
           <div class="current-weather">
             <div class="row">
-              <div class="col-9">
-                <h1>NewYork</h1>
+              <div class="col-8">
+                <h1></h1>
                 <ul>
-                  <li>Friday 9:28</li>
-                  <li id="weather-description">sunny</li>
+                  <li id="time"></li>
+                  <li id="weather-description"></li>
                   <li>
-                    Humidity: <span id="humidity">75</span>% | Wind:
-                    <span id="wind">3.6</span>km/h
+                    Humidity: <span id="humidity"></span>% | Wind:
+                    <span id="wind"></span>km/h
                   </li>
                 </ul>
               </div>
-              <div class="col-3">
-                <i class="fa-solid fa-cloud"></i>
-                <span id="temperature">18</span><span class="unit">°C</span>
+              <div class="col-4">
+               <div class="d-flex">
+                 <img id="current-weather-icon" src="" alt="" />
+                <span id="temperature"></span><span class="unit">°C</span>
+              
+               </div>
               </div>
             </div>
           </div>
         </div>
 
         <p>
-          open-sourced project on <a href="" target="_blank">GitHub</a>, hosted
-          on Netlify
+          open-sourced project on <a href="https://github.com/ghazale-gh/weather-forecast" target="_blank">GitHub
         </p>
       </div>
     </div>

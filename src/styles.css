@@ -15,7 +15,7 @@ hr {
   color: #27214260;
 }
 h1 {
-  font-size: 50px;
+  font-size: 45px;
   color: #272142;
   font-family: "Signika Negative", sans-serif;
   margin-bottom: 0;
@@ -36,6 +36,9 @@ p {
   margin-top: 0;
   font-family: "Roboto", sans-serif;
   color: #3e375dbe;
+}
+a {
+  text-decoration: none;
 }
 .weather-forecast-width {
   min-width: 350px;
@@ -81,5 +84,9 @@ p {
   font-family: "Roboto", sans-serif;
   font-size: 25px;
   position: relative;
-  top: -25px;
+  top: 15px;
+  left: -10px;
+}
+#weather-description::first-letter {
+  text-transform: capitalize;
 }
