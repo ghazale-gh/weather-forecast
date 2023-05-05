@@ -41,16 +41,29 @@ p {
 a {
   text-decoration: none;
 }
-.weather-forecast-width {
+.weather-app-width {
   min-width: 350px;
   max-width: 700px;
   margin: 50px auto;
 }
-.weather-forecast {
+.current-forecast-search {
   border: 1px solid #27214260;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 1px 10px #27214260;
+}
+.weather-forecast {
+  text-align: center;
+  color: #272142;
+  font-family: "Signika Negative", sans-serif;
+  font-size: 20px;
+}
+.weather-forecast-temperature {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+}
+.weather-forecast-min-temperature {
+  opacity: 0.5;
 }
 #search-city-input {
   width: 100%;

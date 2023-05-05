@@ -1,6 +1,7 @@
 //using SheCodes weather api
 let apiKey = "01e67acf316997535ao54a5te02b15fa";
 let celsiusTemperature = null;
+//set time based on api response.data.time
 function format_time(time) {
   let date = new Date(time);
   let hours = date.getHours();
