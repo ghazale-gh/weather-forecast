@@ -2,7 +2,7 @@
 let apiKey = "01e67acf316997535ao54a5te02b15fa";
 let celsiusTemperature = null;
 //set time based on api response.data.time
-function format_time(time) {
+function format_current_time(time) {
   let date = new Date(time);
   let hours = date.getHours();
   let minutes = date.getMinutes();
@@ -14,20 +14,68 @@ function format_time(time) {
   }
   let number_of_day = date.getDay();
   let days = [
-    "sunday",
-    "monday",
-    "tuesday",
-    "wednesday",
-    "thursday",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
     "Friday",
-    "saturday",
+    "Saturday",
   ];
 
   return `${days[number_of_day]} ${hours}:${minutes}`;
 }
 
+//format the day for forecast
+function format_forecast_day(time) {
+  let date = new Date(time * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+  S;
+}
+// display the HTML code for forecast
+function show_forecast(forecast) {
+  console.log(forecast[0].condition.icon);
+  console.log(forecast);
+  let forecasetElement = document.querySelector("#weather-forecast");
+  let forecastHTML = "";
+  forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastday, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+              <div class="col-2">
+                <div class="weather-forecast-day">
+                 ${format_forecast_day(forecastday.time)}
+                </div>
+                 <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                   forecastday.condition.icon
+                 }.png" alt="${forecastday.condition.icon}" />
+                <div class="weather-forecast-temperature">
+                  <span class="weather-forecast-max-temperature">${Math.round(
+                    forecastday.temperature.maximum
+                  )}°</span>
+                  <span class="weather-forecast-min-temperature">${Math.round(
+                    forecastday.temperature.minimum
+                  )}°</span>
+                </div>
+              </div> `;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecasetElement.innerHTML = forecastHTML;
+}
+
+//get the data for forecast
+function get_forecast(response) {
+  let forecast = response.data.daily;
+  show_forecast(forecast);
+}
+
 function show_temp_of_city(response) {
-  console.log(response);
+  // console.log(response);
   let city = document.querySelector("h1");
   let description = document.querySelector("#weather-description");
   let humidity = document.querySelector("#humidity");
@@ -46,7 +94,9 @@ function show_temp_of_city(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   weather_icon.setAttribute("alt", response.data.condition.icon);
-  time.innerHTML = format_time(response.data.time * 1000);
+  time.innerHTML = format_current_time(response.data.time * 1000);
+  let forecastapiurl = `https://api.shecodes.io/weather/v1/forecast?query=${response.data.city}&key=${apiKey}`;
+  axios.get(forecastapiurl).then(get_forecast);
 }
 
 function searchCity(event) {
@@ -73,7 +123,7 @@ search_form.addEventListener("submit", searchCity);
 //chane unit - celsius to fahrenheit
 function show_fahrenheit(event) {
   event.preventDefault();
-  //remove the active class from thhe culsius link:
+  //remove the active class from the culsius link:
   celsius_link.classList.remove("active");
   fahrenheit_link.classList.add("active");
   let temperature = document.querySelector("#temperature");
