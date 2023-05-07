@@ -121,29 +121,29 @@ let search_form = document.querySelector("form");
 search_form.addEventListener("submit", searchCity);
 
 //chane unit - celsius to fahrenheit
-function show_fahrenheit(event) {
-  event.preventDefault();
-  //remove the active class from the culsius link:
-  celsius_link.classList.remove("active");
-  fahrenheit_link.classList.add("active");
-  let temperature = document.querySelector("#temperature");
-  let fahrenheit = (celsiusTemperature * 9) / 5 + 32;
-  temperature.innerHTML = Math.round(fahrenheit);
-}
+// function show_fahrenheit(event) {
+//   event.preventDefault();
+//   //remove the active class from the culsius link:
+//   celsius_link.classList.remove("active");
+//   fahrenheit_link.classList.add("active");
+//   let temperature = document.querySelector("#temperature");
+//   let fahrenheit = (celsiusTemperature * 9) / 5 + 32;
+//   temperature.innerHTML = Math.round(fahrenheit);
+// }
 
-let fahrenheit_link = document.querySelector("#fahrenheit");
-fahrenheit_link.addEventListener("click", show_fahrenheit);
+// let fahrenheit_link = document.querySelector("#fahrenheit");
+// fahrenheit_link.addEventListener("click", show_fahrenheit);
 
 //chane unit - fahrenheit to celsius
-function show_celsius(event) {
-  event.preventDefault();
-  fahrenheit_link.classList.remove("active");
-  celsius_link.classList.add("active");
-  let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = Math.round(celsiusTemperature);
-}
+// function show_celsius(event) {
+//   event.preventDefault();
+//   fahrenheit_link.classList.remove("active");
+//   celsius_link.classList.add("active");
+//   let temperature = document.querySelector("#temperature");
+//   temperature.innerHTML = Math.round(celsiusTemperature);
+// }
 
-let celsius_link = document.querySelector("#celsius");
-celsius_link.addEventListener("click", show_celsius);
+// let celsius_link = document.querySelector("#celsius");
+// celsius_link.addEventListener("click", show_celsius);
 
 // active/inactive unit links
